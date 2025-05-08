@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Casey Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="images/Logo.png" alt="Logo" class="logo-img" />
+      </div>
+    
+      <div class="nav-links">
+        <a href="index.html">Home Page</a>
+        <a href="about.html">About</a>
+        <div class="dropdown">
+          <a href="portfolio.html">Portfolio</a>
+          <div class="dropdown-content">
+            <a href="portfolio.html#audio">Audio</a>
+            <a href="portfolio.html#video">Video</a>
+            <a href="portfolio.html#coding">Coding</a>
+            <a href="portfolio.html#other">Other</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero-section">
+      <div class="header-background">
+        <img src="images/dither_it_profileImage2.jpg" alt="Matthew Casey" class="header-background-image">
+      </div>
+      <div class="header-text-container">
+        <div class="translucent-box">
+          <h1>Matthew Casey</h1>
+          <p class="intro">
+            I'm a self-motivated Music, Media & Performance Technology graduate with a strong focus on sound design, 3D modeling, and multimedia production. I have experience creating original music, soundscapes, and immersive environments using tools such as Pro Tools, Ableton Live and Reaper. I'm passionate about audio engineering and I'm always eager to push creative boundaries and collaborate on innovative projects in film, gaming, and digital media.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="section-highlight">
+      <h2>Audio Production Skills</h2>
+      <p>
+        My background in audio is grounded in hands-on experience with recording, mixing, and mastering across diverse genres. I specialize in shaping sound to serve emotion and narrative—whether for music, film, or interactive media.
+      </p>
+      <p>
+        I work confidently in Pro Tools, Ableton Live, Reaper, and Logic Pro. My toolkit also includes iZotope RX for audio restoration, Max/MSP for creative coding, and DAWs integrated into Unity for game development. Alongside technical fluency, I bring collaborative energy, clear communication, and a strong commitment to deadlines.
+      </p>
+      <p>
+        Beyond audio, I’m also skilled in video editing (DaVinci Resolve, Blender, Maya), sound for visuals, and scripting tools for interactivity.
+      </p>
+    </section>
+    
+    <hr>
+    
+    <section class="section-highlight">
+      <h2>Education</h2>
+      <p>
+        <strong>BSc in Music, Media & Performance Technology — University of Limerick (2019–2023)</strong>
+      </p>
+      <p>
+        At UL, I explored the crossroads of music, code, and visual media. The program trained me in studio production, interactive design, and audio for video, with a focus on real-world creative problem-solving.
+      </p>
+      <p>
+        My final year focused on immersive audio environments and generative sound systems—blending art and technology in ways that continue to shape my creative direction.
+      </p>
+    </section>
+    
+    <hr>
+
+    <section class="experience-section">
+        <h2>Experience</h2>
+      
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src= "images\Logo.png" alt="Logo" style="width:10%;">
+            <h3 class="experience-title">Merchants Quay Ireland</h3>
+            <p class="experience-description">
+              Managed IT systems, cybersecurity, and technical support while optimizing operations, coordinating team efforts, and delivering client-focused solutions to ensure seamless functionality and data protection.
+            </p>
+            <a href="jobs.html" class="learn-more">Learn More <span>&#x2192;</span></a>
+          </div>
+      
+          <div class="experience-card">
+            <img src= "images\Logo.png" alt="Logo" style="width:10%;">
+            <h3 class="experience-title">Odeon Cinema</h3>
+            <p class="experience-description">
+              Enhanced cinema operations through team collaboration, staff training, and process optimization while delivering exceptional customer service to improve client satisfaction and overall experience.
+            </p>
+            <a href="jobs.html" class="learn-more">Learn More <span>&#x2192;</span></a>
+          </div>
+      
+          <div class="experience-card">
+            <img src= "images\Logo.png" alt="Logo" style="width:10%;">
+            <h3 class="experience-title">Other Experiences</h3>
+            <p class="experience-description">
+              Learn more about the other experiences I have had in more detail.
+            </p>
+            <a href="jobs.html" class="learn-more">Learn More <span>&#x2192;</span></a>
+          </div>
+        </div>
+    </section>     
+    
+    <hr>
+
+    <section class="contact-section">  
+      <div class="contact-container">  
+        <div class="contact-content">  
+          <h2>Contact Me</h2>
+        
+          <form class="contact-form">
+            <div class="form-group">
+              <textarea class="message-input" placeholder="Your message..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Portfolio</h4>
+          <ul>
+            <li><a href="portfolio.html#audio">Audio</a></li>
+            <li><a href="portfolio.html#video">Video</a></li>
+            <li><a href="portfolio.html#other">Other</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:your-email@example.com">Email</a></li>
+            <li><a href="tel:+1234567890">Phone</a></li>
+            <li><a href="https://www.google.com/maps/place/Your+Location" target="_blank">Location</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+        const headerImage = document.querySelector(".header-background-image");
+
+        // Adjust the image's position based on scroll
+        headerImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+      });
+    </script>
+</body>
+</html>

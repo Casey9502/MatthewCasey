@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew Casey Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="images/Logo.png" alt="Logo" class="logo-img" />
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home Page</a>
+      <a href="about.html">About</a>
+      <div class="dropdown">
+        <a href="portfolio.html">Portfolio</a>
+        <div class="dropdown-content">
+          <a href="portfolio.html#audio">Audio</a>
+          <a href="portfolio.html#video">Video</a>
+          <a href="portfolio.html#coding">Coding</a>
+          <a href="portfolio.html#other">Other</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="portfolio-hero">
+    <div class="header-background">
+      <img src="images/dither_it_DemoDay.jpg" alt="Portfolio Background" class="header-background-image">
+    </div>
+    <div class="header-text-container">
+      <div class="translucent-box">
+        <h1>Portfolio</h1>
+        <p>Selected works across sound design, multimedia production, and technical development.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("scroll", function () {
+      const scrollPosition = window.scrollY;
+      const portfolioImage = document.querySelector(".portfolio-hero .header-background-image");
+  
+      // Adjust the image's position based on scroll
+      if (portfolioImage) {
+        portfolioImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+      }
+    });
+  </script>
+
+  <hr>
+
+  <div class="container">
+    <section id="audio">
+      <div class="section-header">
+        <h1 class="section-title">Audio Projects</h1>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-img-container">
+            <img src="images/dither_it_IMG_20230303_173047.jpg" alt="Cinematic Sound Design" class="project-img" />
+          </div>
+          <div class="project-header">
+            <div class="project-icon">01</div>
+            <h2>Advanced Audio</h2>
+          </div>
+          <div class="project-content">
+            <p>A comprehsive guide to advanced recording techniques</p>
+          </div>
+          <div class="project-links">
+            <a href="#">Demo Reel</a>
+            <a href="Advanced Audio.html">Report</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="video">
+      <div class="section-header">
+        <h1 class="section-title">Video Projects</h1>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-img-container">
+            <img src="images/Screenshot 2025-05-08 011433.png" alt="3D Animation Short" class="project-img" />
+          </div>
+          <div class="project-header">
+            <div class="project-icon">02</div>
+            <h2>Music Video</h2>
+          </div>
+          <div class="project-content">
+            <p>A one-minute experimental music video</p>
+          </div>
+          <div class="project-links">
+            <a href="https://youtu.be/y9ZdmZMfbSU">Watch Video</a>
+            <a href="Music Video.html">Breakdown</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="other">
+      <div class="section-header">
+        <h1 class="section-title">Other Projects</h1>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-img-container">
+            <img src="images/dither_it_Screenshot 2025-05-08 013341.png" alt="Technical Writing" class="project-img" />
+          </div>
+          <div class="project-header">
+            <div class="project-icon">03</div>
+            <h2>Games Development</h2>
+          </div>
+          <div class="project-content">
+            <p>A prototype game</p>
+          </div>
+          <div class="project-links">
+            <a href="https://youtu.be/craG3kHzPaY">Watch Video</a>
+            <a href="#">PDF Collection</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Portfolio</h4>
+        <ul>
+          <li><a href="portfolio.html#audio">Audio</a></li>
+          <li><a href="portfolio.html#video">Video</a></li>
+          <li><a href="portfolio.html#other">Other</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:your-email@example.com">Email</a></li>
+          <li><a href="tel:+1234567890">Phone</a></li>
+          <li><a href="https://www.google.com/maps/place/Your+Location" target="_blank">Location</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

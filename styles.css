@@ -1,0 +1,1105 @@
+/* =======================
+   Color Palette & Defaults
+========================== */
+:root {
+  --primary: #2C3E50;   /* Dark Slate Blue */
+  --secondary: #2980B9; /* Muted Blue */
+  --accent: #16A085;    /* Teal Green */
+  --dark: #1A252F;      /* Deep Charcoal */
+  --light: #ffffff;     /* Soft Gray */
+  --text: #2F2F2F;      /* Neutral Dark Gray */
+}
+
+/* General body styles */
+body {
+  margin: 20px; /* Add 20px margin around the entire page */
+  font-family: 'Arial', sans-serif; /* Ensure consistent font styling */
+  line-height: 1.6; /* Improve readability */
+  color: var(--text);
+  padding: 0; /* Remove padding */
+  background-color: var(--light);
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 20%);
+}
+
+/* =======================
+   Navigation
+========================== */
+.navbar {
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  background-color: var(--light);
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  bottom: -5px;
+  left: 0;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--light);
+  color: var(--primary);
+  padding-left: 25px;
+}
+
+/* =======================
+   Header
+========================== */
+header {
+  position: relative;
+  height: 80vh; /* Reduce the height to 80% of the viewport */
+  overflow: hidden;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/dither_it_profileImage2.jpg'); /* Use the image as a background */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the image for the parallax effect */
+}
+
+.header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.translucent-box {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.translucent-box h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.translucent-box .intro {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-column h1,
+.footer-column p {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  height: auto;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =======================
+   Hero Section
+========================== */
+
+.hero-section {
+  position: relative;
+  height: 80vh; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.hero-section .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/dither_it_profileImage2.jpg'); /* Use the image as a background */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the image for the parallax effect */
+}
+
+.hero-section .header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-section .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.hero-section .translucent-box {
+  background: rgba(0, 0, 0, 0.9); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.hero-section .translucent-box h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-section .translucent-box .intro {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* =======================
+   Skills Section
+========================== */
+
+.enhanced-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: #2c2c2c;
+}
+
+.enhanced-section h2 {
+  font-size: 2rem;
+  border-left: 6px solid #555;
+  padding-left: 12px;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.skills-list, .sub-skills {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.skills-list > li {
+  margin-bottom: 1.5rem;
+}
+
+.sub-skills li::before {
+  content: "🎧";
+  margin-right: 8px;
+  color: #666;
+}
+
+
+/* =======================
+   Porfolio Hero Section
+========================== */
+
+/* Portfolio Hero Section */
+.portfolio-hero {
+  position: relative;
+  height: 60vh; /* Reduced height to 60% of the viewport */
+  overflow: hidden;
+}
+
+.portfolio-hero .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+}
+
+.portfolio-hero .header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.25); /* Zoom out the image by 25% */
+  transform-origin: center; /* Keep the zoom centered */
+}
+
+.portfolio-hero .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.portfolio-hero .translucent-box {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.portfolio-hero .translucent-box h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.portfolio-hero .translucent-box p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* =======================
+   Jobs Hero Section
+========================== */
+
+.jobs-hero {
+  position: relative;
+  height: 80vh; /* Same height as the other hero sections */
+  overflow: hidden;
+}
+
+.jobs-hero .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the image for the parallax effect */
+}
+
+.jobs-hero .header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jobs-hero .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.jobs-hero .translucent-box {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.jobs-hero .translucent-box h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.jobs-hero .translucent-box p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* =======================
+   Contact Hero Section
+========================== */
+
+.contact-hero {
+  position: relative;
+  height: 40vh; /* Reduced height to 40% of the viewport */
+  overflow: hidden;
+}
+
+.contact-hero .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the image for the parallax effect */
+}
+
+.contact-hero .header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-hero .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.contact-hero .translucent-box {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.contact-hero .translucent-box h1 {
+  font-size: 2rem; /* Adjusted font size for smaller hero */
+  margin: 0;
+}
+
+.contact-hero .translucent-box p {
+  font-size: 1rem; /* Adjusted font size for smaller hero */
+  margin-top: 10px;
+}
+
+/* =======================
+   About Hero Section
+========================== */
+
+.about-hero {
+  position: relative;
+  height: 80vh; /* Full hero height */
+  overflow: hidden;
+}
+
+.about-hero .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the image for the parallax effect */
+}
+
+.about-hero .header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-hero .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  height: 100%;
+  padding: 0 5%; /* Add some padding on the left */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+}
+
+.about-hero .translucent-box {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.about-hero .translucent-box h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.about-hero .translucent-box p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* =======================
+   Team Timeline
+========================== */
+
+.team-timeline {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.team-timeline h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #222;
+  position: relative;
+}
+
+.timeline {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.timeline-item {
+  background: #fdfdfd;
+  border-left: 5px solid #444;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  text-align: left;
+}
+
+.timeline-content img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.timeline-content p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =======================
+   Section Highlight
+========================== */
+
+.section-highlight {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.section-highlight h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+  border-left: 6px solid #444;
+  padding-left: 12px;
+}
+
+.section-highlight p {
+  margin-bottom: 1.5rem;
+}
+
+
+/* =======================
+   Contact Methods
+========================== */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(110, 68, 255, 0.1);
+  border: 1px solid rgba(110, 68, 255, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(110, 68, 255, 0.2);
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.contact-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-card h3::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary); /* Fallback color */
+  background-image: url('images/Logo.png'); /* Ensure this path is correct */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px; /* Add spacing between the logo and the text */
+  vertical-align: middle; /* Align the pseudo-element vertically with the text */
+}
+
+
+.contact-card p {
+  margin-bottom: 15px;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.contact-card a:hover {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+/* =======================
+   Experience Section
+========================== */
+.experience-section {
+  padding: 60px 20px;
+  background-color: white; /* Light background for contrast */
+  text-align: center;
+}
+
+.experience-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary); /* Use primary color for the heading */
+  text-transform: uppercase; /* Consistent with other headings */
+  letter-spacing: 1px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--accent)); /* Gradient border */
+}
+
+.experience-icon {
+  margin-bottom: 20px;
+}
+
+.experience-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.experience-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--primary); /* Use primary color for the card title */
+  font-weight: bold;
+}
+
+.experience-card p {
+  font-size: 1rem;
+  color: var(--text); /* Neutral text color */
+  line-height: 1.6;
+}
+
+/* =======================
+   Contact Form
+========================== */
+.contact-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  margin: 60px 0;
+  box-shadow: 0 10px 30px rgba(110, 68, 255, 0.1);
+  border: 1px solid rgba(110, 68, 255, 0.1);
+}
+
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--dark);
+  position: relative;
+}
+
+.contact-form h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  bottom: -10px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid rgba(110, 68, 255, 0.2);
+  background-color: var(--light);
+  transition: all 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(110, 68, 255, 0.1);
+  outline: none;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+button {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(110, 68, 255, 0.3);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(110, 68, 255, 0.4);
+}
+
+/* =======================
+   Footer
+========================== */
+footer {
+  width: 100%; /* Full width */
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: #fff;
+  border-top: 1px solid rgba(110, 68, 255, 0.1);
+  color: var(--text);
+  font-size: 0.95rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: var(--primary);
+}
+
+footer .copyright {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* =======================
+   Responsive Design
+========================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-form {
+    padding: 30px 20px;
+  }
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.portfolio-hero {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #222;
+  color: white;
+}
+
+.project {
+  padding: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-icon {
+  font-weight: bold;
+  background: #444;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+}
+
+.project-links a {
+  margin-right: 15px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+/* =======================
+   Job Card
+========================== */
+
+.job-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.job-card h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.job-card p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.job-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.job-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Project Card */
+.project {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.project-icon {
+  background: var(--secondary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.project h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+  flex: 1;
+}
+
+.project-content {
+  padding: 1rem 1.5rem;
+}
+
+.project p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.project-links a {
+  padding: 0.5rem 1rem;
+  background: var(--light);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.project-links a:hover {
+  background: var(--secondary);
+  color: white;
+}
