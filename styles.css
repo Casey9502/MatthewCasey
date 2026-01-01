@@ -2,18 +2,20 @@
    Color Palette & Defaults
 ========================== */
 :root {
-  --primary: #2C3E50;   /* Dark Slate Blue */
-  --secondary: #2980B9; /* Muted Blue */
-  --accent: #16A085;    /* Teal Green */
+  --primary: #2F4858;   /* Dark Blue-Gray as primary */
+  --secondary: #86BBD8; /* Light Blue as secondary */
+  --accent: #F6AE2D;    /* Golden Yellow as accent */
   --dark: #1A252F;      /* Deep Charcoal */
-  --light: #ffffff;     /* Soft Gray */
+  --light: #FFFFFF;     /* White */
   --text: #2F2F2F;      /* Neutral Dark Gray */
+  --success: #6CAE75;   /* Green for success states */
+  --warning: #F26419;   /* Orange for warnings */
 }
 
 /* General body styles */
 body {
   margin: 20px; /* Add 20px margin around the entire page */
-  font-family: 'Arial', sans-serif; /* Ensure consistent font styling */
+  font-family: Tahoma, Geneva, sans-serif; /* Ensure consistent font styling */
   line-height: 1.6; /* Improve readability */
   color: var(--text);
   padding: 0; /* Remove padding */
@@ -69,7 +71,16 @@ body {
   position: absolute;
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(to bottom, 
+    #6CAE75 0%, 
+    #6CAE75 25%, 
+    #2F4858 25%, 
+    #2F4858 40%, 
+    #86BBD8 40%, 
+    #86BBD8 70%, 
+    #F26419 70%, 
+    #F26419 100%
+  );
   bottom: -5px;
   left: 0;
   border-radius: 2px;
@@ -94,9 +105,22 @@ body {
   min-width: 180px;
   padding: 10px 0;
   z-index: 10;
+  top: 100%; /* Positions it right below the trigger */
+  margin-top: 5px; /* Creates the gap/bridge */
 }
 
-.dropdown:hover .dropdown-content {
+/* Add a pseudo-element to bridge the gap */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px; /* Height of the bridge */
+  bottom: -10px; /* Position below the trigger */
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:hover::after {
   display: block;
   animation: fadeIn 0.3s ease-out;
 }
@@ -109,22 +133,31 @@ body {
 .dropdown-content a {
   display: block;
   padding: 10px 20px;
-  color: var(--text);
+  color: black;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .dropdown-content a:hover {
-  background-color: var(--light);
-  color: var(--primary);
+  background: linear-gradient(to bottom, 
+    #6CAE75 0%, 
+    #6CAE75 25%, 
+    #2F4858 25%, 
+    #2F4858 40%, 
+    #86BBD8 40%, 
+    #86BBD8 70%, 
+    #F26419 70%, 
+    #F26419 100%
+  );
+  color: white;
   padding-left: 25px;
 }
 
 /* =======================
-   Header
+   Header Section
 ========================== */
-header {
+.header {
   position: relative;
   height: 80vh; /* Reduce the height to 80% of the viewport */
   overflow: hidden;
@@ -156,7 +189,7 @@ header {
 }
 
 .translucent-box {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  background: 6CAE75; /* Semi-transparent black box */
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -198,6 +231,8 @@ header {
   pointer-events: none;
 }
 
+
+
 /* =======================
    Hero Section
 ========================== */
@@ -236,13 +271,13 @@ header {
   height: 100%;
   padding: 0 5%; /* Add some padding on the left */
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: none; 
 }
 
 .hero-section .translucent-box {
-  background: rgba(0, 0, 0, 0.9); /* Semi-transparent black box */
+  background: rgba(108, 174, 117, 0.9); /* Semi-transparent black box */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   max-width: 600px;
 }
 
@@ -254,6 +289,69 @@ header {
 .hero-section .translucent-box .intro {
   font-size: 1.2rem;
   margin-top: 10px;
+}
+
+/* =======================
+   Recent Work Section
+========================== */
+
+.recent-highlight {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.recent-highlight .recent-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/1E6B981D-2AA7-43C8-BA26-A0D973BB5029.jpg'); /* Your image */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* This creates the parallax/fixed effect */
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Remove the img tag from HTML or hide it */
+.recent-highlight .recent-background-image {
+  display: none; /* Hide the img element since we're using background-image */
+}
+
+.recent-highlight .recent-highlight-text-container {
+  position: relative;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0 5%;
+  color: white;
+  width: 50%; /* Only takes up half the width */
+  margin-left: auto; /* Pushes it to the right */
+}
+
+.recent-highlight .translucent-box-recent {
+  background: rgba(47, 72, 88, 0.9); /* Semi-transparent version of #2F4858 */
+  padding: 40px; /* Increased padding */
+  border-radius: 10px; /* Slightly more rounded */
+  max-width: 600px;
+  width: 100%;
+}
+
+.recent-highlight .translucent-box-recent h2 {
+  font-size: 2.5rem;
+  margin: 0 0 20px 0;
+}
+
+.recent-highlight .translucent-box-recent p {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  line-height: 1.6;
 }
 
 /* =======================
@@ -690,7 +788,7 @@ header {
 .experience-section h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: var(--primary); /* Use primary color for the heading */
+  color: rgba(0,0,0,1); /* Use primary color for the heading */
   text-transform: uppercase; /* Consistent with other headings */
   letter-spacing: 1px;
 }
@@ -726,7 +824,16 @@ header {
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, var(--primary), var(--accent)); /* Gradient border */
+  background: linear-gradient(to bottom, 
+  #6CAE75 0%,   /* Green - 25% */
+  #6CAE75 25%, 
+  #2F4858 25%,  /* Dark Blue - 15% */
+  #2F4858 40%, 
+  #86BBD8 40%,  /* Light Blue - 30% */
+  #86BBD8 70%, 
+  #F26419 70%,  /* Orange - 30% */
+  #F26419 100%
+); /* Gradient border */
 }
 
 .experience-icon {
@@ -742,14 +849,36 @@ header {
 .experience-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: var(--primary); /* Use primary color for the card title */
+  color: black; /* Use primary color for the card title */
   font-weight: bold;
 }
 
 .experience-card p {
   font-size: 1rem;
-  color: var(--text); /* Neutral text color */
+  color: black; /* Neutral text color */
   line-height: 1.6;
+}
+
+.learn-more {
+  color: #F26419; /* Orange color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.learn-more:hover {
+  color: #6CAE75; /* Green color on hover */
+}
+
+.learn-more span {
+  transition: transform 0.3s ease;
+}
+
+.learn-more:hover span {
+  transform: translateX(3px); /* Slight arrow movement on hover */
 }
 
 /* =======================
