@@ -71,16 +71,7 @@ body {
   position: absolute;
   width: 0;
   height: 3px;
-  background: linear-gradient(to bottom, 
-    #6CAE75 0%, 
-    #6CAE75 25%, 
-    #2F4858 25%, 
-    #2F4858 40%, 
-    #86BBD8 40%, 
-    #86BBD8 70%, 
-    #F26419 70%, 
-    #F26419 100%
-  );
+  background: rgba(242, 100, 25, 0.8);
   bottom: -5px;
   left: 0;
   border-radius: 2px;
@@ -89,69 +80,6 @@ body {
 
 .nav-links a:hover::after {
   width: 100%;
-}
-
-/* Dropdown Menu */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  min-width: 180px;
-  padding: 10px 0;
-  z-index: 10;
-  top: 100%; /* Positions it right below the trigger */
-  margin-top: 5px; /* Creates the gap/bridge */
-}
-
-/* Add a pseudo-element to bridge the gap */
-.dropdown::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 10px; /* Height of the bridge */
-  bottom: -10px; /* Position below the trigger */
-}
-
-.dropdown:hover .dropdown-content,
-.dropdown:hover::after {
-  display: block;
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px 20px;
-  color: black;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.dropdown-content a:hover {
-  background: linear-gradient(to bottom, 
-    #6CAE75 0%, 
-    #6CAE75 25%, 
-    #2F4858 25%, 
-    #2F4858 40%, 
-    #86BBD8 40%, 
-    #86BBD8 70%, 
-    #F26419 70%, 
-    #F26419 100%
-  );
-  color: white;
-  padding-left: 25px;
 }
 
 /* =======================
@@ -277,7 +205,7 @@ body {
 .hero-section .translucent-box {
   background: rgba(108, 174, 117, 0.9); /* Semi-transparent black box */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   max-width: 600px;
 }
 
@@ -337,8 +265,8 @@ body {
 
 .recent-highlight .translucent-box-recent {
   background: rgba(47, 72, 88, 0.9); /* Semi-transparent version of #2F4858 */
-  padding: 40px; /* Increased padding */
-  border-radius: 10px; /* Slightly more rounded */
+  padding: 20px; /* Increased padding */
+  border-radius: 20px; /* Slightly more rounded */
   max-width: 600px;
   width: 100%;
 }
@@ -389,15 +317,12 @@ body {
   color: #666;
 }
 
-
 /* =======================
-   Porfolio Hero Section
+   Portfolio Hero Section
 ========================== */
-
-/* Portfolio Hero Section */
 .portfolio-hero {
   position: relative;
-  height: 60vh; /* Reduced height to 60% of the viewport */
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -407,15 +332,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Ensure the image doesn't overflow */
+  background-image: url('images/000241410025.jpeg'); /* Use the image as a background */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .portfolio-hero .header-background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.25); /* Zoom out the image by 25% */
-  transform-origin: center; /* Keep the zoom centered */
+  display: none;
 }
 
 .portfolio-hero .header-text-container {
@@ -424,15 +350,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Align text to the left */
+  align-items: flex-start;
   height: 100%;
-  padding: 0 5%; /* Add some padding on the left */
+  padding: 0 5%;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: none;
 }
 
 .portfolio-hero .translucent-box {
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black box */
+  background: rgba(242, 100, 25, 0.7);
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -449,12 +375,168 @@ body {
 }
 
 /* =======================
+   Photo Gallery
+========================== */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  grid-auto-flow: dense; /* Allows items to fill gaps */
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make every 3rd item larger (wide) */
+.gallery-item:nth-child(3n) {
+  grid-column: span 2;
+}
+
+/* Make every 5th item taller */
+.gallery-item:nth-child(5n) {
+  grid-row: span 2;
+}
+
+/* Make every 7th item extra large */
+.gallery-item:nth-child(7n) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Changed back to cover for better masonry look */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* More/Less button styling */
+.more-button {
+  background: #F26419; /* Solid red/orange color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  aspect-ratio: 1 / 1; /* Makes it square */
+  width: 150px; /* Fixed smaller width */
+  height: 150px; /* Fixed smaller height */
+  grid-column: span 1; /* Take up only 1 column */
+  grid-row: span 1; /* Take up only 1 row */
+}
+
+.more-button:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 10px 30px rgba(242, 100, 25, 0.4) !important;
+  background: #d45514; /* Slightly darker on hover */
+}
+
+.more-content {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem; /* Smaller font size */
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arrow {
+  display: none; /* Hide the arrow */
+}
+
+.hidden-item {
+  display: none;
+}
+
+/* =======================
+   Lightbox Modal
+========================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: zoom 0.3s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.5)}
+  to {transform: scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+}
+
+/* =======================
    Jobs Hero Section
 ========================== */
 
 .jobs-hero {
   position: relative;
-  height: 80vh; /* Same height as the other hero sections */
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -464,15 +546,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover; /* Ensure the image covers the entire section */
-  background-position: center; /* Center the image */
-  background-attachment: fixed; /* Fix the image for the parallax effect */
+  background-image: url('images/1E6B981D-2AA7-43C8-BA26-A0D973BB5029.jpg');
+  background-size: cover;
+  background-position: center 10%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
+  
 }
 
 .jobs-hero .header-background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
 }
 
 .jobs-hero .header-text-container {
@@ -481,15 +565,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Align text to the left */
+  align-items: flex-start;
   height: 100%;
-  padding: 0 5%; /* Add some padding on the left */
+  padding: 0 5%;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: none;
 }
 
 .jobs-hero .translucent-box {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  background: rgba(26, 37, 47, 0.7);
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -505,13 +589,76 @@ body {
   margin-top: 10px;
 }
 
+.job-showcase {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  
+}
+
+.job-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(110, 68, 255, 0.1);
+  border: 1px solid rgba(110, 68, 255, 0.1);
+  transition: transform 0.4s ease;
+  margin-bottom: 80px !important;
+  position: relative;
+  overflow: hidden; /* This is the key */
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    #6CAE75 0%,   /* Green - 25% */
+    #6CAE75 25%, 
+    #2F4858 25%,  /* Dark Blue - 15% */
+    #2F4858 40%, 
+    #86BBD8 40%,  /* Light Blue - 30% */
+    #86BBD8 70%, 
+    #F26419 70%,  /* Orange - 30% */
+    #F26419 100%
+  ); /* Gradient border */
+}
+
+.job-card:last-child {
+  margin-bottom: 80px !important;
+}
+
+.job-card h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.job-card p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.job-card ul {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+.job-card li {
+  margin-bottom: 10px;
+  color: #555;
+}
 /* =======================
    Contact Hero Section
 ========================== */
 
 .contact-hero {
   position: relative;
-  height: 40vh; /* Reduced height to 40% of the viewport */
+  height: 80vh; /* Reduced height to 40% of the viewport */
   overflow: hidden;
 }
 
@@ -521,15 +668,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover; /* Ensure the image covers the entire section */
-  background-position: center; /* Center the image */
-  background-attachment: fixed; /* Fix the image for the parallax effect */
+  background-image: url('images/000241410036.jpeg');
+  background-size: cover;
+  background-position: center 10%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .contact-hero .header-background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
 }
 
 .contact-hero .header-text-container {
@@ -538,15 +686,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Align text to the left */
+  align-items: flex-start;
   height: 100%;
-  padding: 0 5%; /* Add some padding on the left */
+  padding: 0 5%;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: none;
 }
 
 .contact-hero .translucent-box {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  background: rgba(246, 174, 45, 0.7);
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -562,14 +710,18 @@ body {
   margin-top: 10px;
 }
 
+
+
 /* =======================
    About Hero Section
 ========================== */
 
+/* About Hero Section */
 .about-hero {
   position: relative;
-  height: 80vh; /* Full hero height */
+  height: 80vh;
   overflow: hidden;
+  margin-bottom: 60px;
 }
 
 .about-hero .header-background {
@@ -578,15 +730,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover; /* Ensure the image covers the entire section */
-  background-position: center; /* Center the image */
-  background-attachment: fixed; /* Fix the image for the parallax effect */
+  background-image: url("images/DemoDay.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .about-hero .header-background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
 }
 
 .about-hero .header-text-container {
@@ -595,17 +748,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Align text to the left */
+  align-items: flex-start;
   height: 100%;
-  padding: 0 5%; /* Add some padding on the left */
+  padding: 0 5%;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: none;
 }
 
 .about-hero .translucent-box {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black box */
+  background: rgba(134, 187, 216, 0.7); /* Light Blue as secondary */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   max-width: 600px;
 }
 
@@ -619,57 +772,161 @@ body {
   margin-top: 10px;
 }
 
-/* =======================
-   Team Timeline
-========================== */
-
-.team-timeline {
-  max-width: 1000px;
-  margin: 4rem auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.team-timeline h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #222;
+/* Timeline Section */
+.about-timeline {
   position: relative;
+  padding: 0;
+  margin: 0;
+  background: transparent;
 }
 
-.timeline {
-  display: grid;
-  gap: 2.5rem;
-}
-
+/* Each timeline item */
 .timeline-item {
-  background: #fdfdfd;
-  border-left: 5px solid #444;
-  padding: 2rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   position: relative;
-  text-align: left;
+  height: 80vh;
+  overflow: hidden;
+  margin-bottom: 0; /* Remove gap between timeline items if desired */
 }
 
-.timeline-content img {
+/* Timeline background containers - like hero's .header-background */
+.timeline-background1,
+.timeline-background2,
+.timeline-background3,
+.timeline-background4,
+.timeline-background5,
+.timeline-background6 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 350px;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* KEY: This creates the parallax effect like hero */
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
-.timeline-content h3 {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  color: #333;
+/* Set individual background images */
+.timeline-background1 {
+  background-image: url("images/000241410036.jpeg");
 }
 
-.timeline-content p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6;
+.timeline-background2 {
+  background-image: url("images/Live-studio.png");
+}
+
+.timeline-background3 {
+  background-image: url("images/About me.png");
+}
+
+.timeline-background4 {
+  background-image: url("images/ems19.png");
+}
+
+.timeline-background5 {
+  background-image: url("images/009208890019.jpg");
+} 
+
+.timeline-background6 {
+  background-image: url("images/009208890026.jpeg");
+}
+
+/* Hide the img tags - like hero does */
+.timeline-background-image {
+  display: none;
+}
+
+/* Timeline text container - like hero's .header-text-container */
+.timeline-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 5%;
+  color: white;
+  text-shadow: none;
+}
+
+/* Alternating alignment for variety */
+.timeline-item:nth-child(odd) .timeline-text-container {
+  align-items: flex-start;
+}
+
+.timeline-item:nth-child(even) .timeline-text-container {
+  align-items: flex-end;
+}
+
+/* Timeline text box - like hero's .translucent-box */
+/* Timeline box 1 - Brown */
+.translucent-box-timeline1 {
+  background: rgba(255, 195, 76, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+/* Timeline box 2 - Green */
+.translucent-box-timeline2 {
+  background: rgba(47, 72, 88, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+/* Timeline box 3 - Cyan */
+.translucent-box-timeline3 {
+  background: rgba(242, 100, 25, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+/* Timeline box 4 - Purple */
+.translucent-box-timeline4 {
+  background: rgba(26, 37, 47, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+.translucent-box-timeline5 {
+  background: rgba(108, 174, 117, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+.translucent-box-timeline6 {
+  background: rgba(47, 72, 88, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+/* Styles for all timeline boxes */
+.translucent-box-timeline1 h2,
+.translucent-box-timeline2 h2,
+.translucent-box-timeline3 h2,
+.translucent-box-timeline4 h2,
+.translucent-box-timeline5 h2,
+.translucent-box-timeline6 h2 {
+  font-size: 2.5rem;
+  margin: 0 0 15px 0;
+  color: white;
+}
+
+.translucent-box-timeline1 p,
+.translucent-box-timeline2 p,
+.translucent-box-timeline3 p,
+.translucent-box-timeline4 p,
+.translucent-box-timeline5 p,
+.translucent-box-timeline6 p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: white;
 }
 
 /* =======================
@@ -719,6 +976,26 @@ body {
   transition: transform 0.4s ease;
 }
 
+.contact-card .header-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0 5%;
+  color: white;
+  text-shadow: none;
+}
+
+.contact-card .translucent-box {
+  background: rgba(242, 100, 25, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
 .contact-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(110, 68, 255, 0.2);
@@ -727,10 +1004,20 @@ body {
 .contact-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, var(--primary), var(--accent));
+  background: linear-gradient(to bottom, 
+    #6CAE75 0%,   /* Green - 25% */
+    #6CAE75 25%, 
+    #2F4858 25%,  /* Dark Blue - 15% */
+    #2F4858 40%, 
+    #86BBD8 40%,  /* Light Blue - 30% */
+    #86BBD8 70%, 
+    #F26419 70%,  /* Orange - 30% */
+    #F26419 100%
+  );
 }
 
 .contact-card h3 {
@@ -741,21 +1028,6 @@ body {
   align-items: center;
   gap: 10px;
 }
-
-.contact-card h3::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: var(--primary); /* Fallback color */
-  background-image: url('images/Logo.png'); /* Ensure this path is correct */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-right: 10px; /* Add spacing between the logo and the text */
-  vertical-align: middle; /* Align the pseudo-element vertically with the text */
-}
-
 
 .contact-card p {
   margin-bottom: 15px;
@@ -775,7 +1047,6 @@ body {
   color: var(--secondary);
   border-bottom-color: var(--secondary);
 }
-
 /* =======================
    Experience Section
 ========================== */
@@ -968,7 +1239,7 @@ button:hover {
 /* =======================
    Footer
 ========================== */
-footer {
+.footer {
   width: 100%; /* Full width */
   margin-top: 60px;
   padding: 40px 20px;
@@ -1020,7 +1291,7 @@ footer {
   color: var(--primary);
 }
 
-footer .copyright {
+.footer .copyright {
   margin-top: 30px;
   font-size: 0.85rem;
   opacity: 0.6;
@@ -1231,4 +1502,18 @@ footer .copyright {
 .project-links a:hover {
   background: var(--secondary);
   color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  background-color: white; /* Light grey background */
+  color: #666; /* Grey text */
+  font-size: 0.85rem; /* Smaller font size */
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #666; /* rey text for the paragraph */
 }

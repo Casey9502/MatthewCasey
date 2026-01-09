@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matthew Casey Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <!-- Navigation Header -->
   <nav class="navbar">
@@ -15,22 +17,15 @@
     <div class="nav-links">
       <a href="index.html">Home Page</a>
       <a href="about.html">About</a>
-      <div class="dropdown">
-        <a href="portfolio.html">Portfolio</a>
-        <div class="dropdown-content">
-          <a href="portfolio.html#audio">Audio</a>
-          <a href="portfolio.html#video">Video</a>
-          <a href="portfolio.html#coding">Coding</a>
-          <a href="portfolio.html#other">Other</a>
-        </div>
-      </div>
+      <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
 
   <section class="portfolio-hero">
     <div class="header-background">
-      <img src="images/dither_it_DemoDay.jpg" alt="Portfolio Background" class="header-background-image">
+      <img src="images/D4A3E403-6AAF-4996-B226-439EBA178715.jpg" alt="Portfolio Background"
+        class="header-background-image">
     </div>
     <div class="header-text-container">
       <div class="translucent-box">
@@ -44,7 +39,7 @@
     document.addEventListener("scroll", function () {
       const scrollPosition = window.scrollY;
       const portfolioImage = document.querySelector(".portfolio-hero .header-background-image");
-  
+
       // Adjust the image's position based on scroll
       if (portfolioImage) {
         portfolioImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
@@ -52,41 +47,38 @@
     });
   </script>
 
-  <hr>
-
   <div class="container">
     <section id="audio">
       <div class="section-header">
-        <h1 class="section-title">Audio Projects</h1>
+        <h1 class="section-title">Film Experience</h1>
       </div>
-      
+
       <div class="projects-grid">
         <div class="project">
           <div class="project-img-container">
-            <img src="images/dither_it_IMG_20230303_173047.jpg" alt="Cinematic Sound Design" class="project-img" />
+            <img src="images/7C7903AA-894E-4AB5-9DCD-7EF2CDAC4712.jpg" alt="Cinematic Sound Design"
+              class="project-img" />
           </div>
           <div class="project-header">
             <div class="project-icon">01</div>
-            <h2>Advanced Audio</h2>
+            <h2>Going Dutch Season 2</h2>
           </div>
           <div class="project-content">
-            <p>A comprehsive guide to advanced recording techniques</p>
-          </div>
-          <div class="project-links">
-            <a href="#">Demo Reel</a>
-            <a href="Advanced Audio.html">Report</a>
+            <p>During a three-month Sound Trainee role on a Fox production, I ensured seamless daily operations by
+              managing the rapid setup of all audio equipment and providing immediate on-set technical troubleshooting.
+              My responsibilities included close collaboration with the camera, video assist along with numberous other
+              departments to maintain an efficient workflow.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <hr>
-
-    <section id="video">
+    <!--
+<section id="video">
       <div class="section-header">
         <h1 class="section-title">Video Projects</h1>
       </div>
-      
+
       <div class="projects-grid">
         <div class="project">
           <div class="project-img-container">
@@ -106,62 +98,223 @@
         </div>
       </div>
     </section>
-
-    <hr>
+-->
 
     <section id="other">
       <div class="section-header">
-        <h1 class="section-title">Other Projects</h1>
+        <h1 class="section-title">Photo Gallery</h1>
       </div>
-      
-      <div class="projects-grid">
-        <div class="project">
-          <div class="project-img-container">
-            <img src="images/dither_it_Screenshot 2025-05-08 013341.png" alt="Technical Writing" class="project-img" />
+
+      <div class="photo-gallery">
+        <!-- First 11 images (always visible) -->
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/157C3E37-97B2-459B-B455-6F9F5DA8BFC6.jpg" alt="Photo 1" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/F4BEDCF7-75D5-4234-9064-8A9CC3E9EB49.jpg" alt="Photo 2" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/000241410025.jpeg" alt="Photo 3" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/IMG_3030.jpg" alt="Photo 4" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/000241410026.jpeg" alt="Photo 5" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/IMG_3037.jpg" alt="Photo 6" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/000241410027.jpeg" alt="Photo 7" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/IMG_3048.jpg" alt="Photo 8" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/000241410028.jpeg" alt="Photo 9" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/IMG_3054.jpg" alt="Photo 10" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="images/000241410029.jpeg" alt="Photo 11" />
+        </div>
+
+        <!-- "More" button (shown initially) -->
+        <div class="gallery-item more-button" id="more-btn" onclick="showMore()">
+          <div class="more-content">
+            <span>More</span>
           </div>
-          <div class="project-header">
-            <div class="project-icon">03</div>
-            <h2>Games Development</h2>
-          </div>
-          <div class="project-content">
-            <p>A prototype game</p>
-          </div>
-          <div class="project-links">
-            <a href="https://youtu.be/craG3kHzPaY">Watch Video</a>
-            <a href="#">PDF Collection</a>
+        </div>
+
+        <!-- Remaining images (hidden initially) -->
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/IMG_3056.jpg" alt="Photo 12" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410030.jpeg" alt="Photo 13" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/40F390C1-D602-4D07-95EB-BB4B8F5C89D1.jpg" alt="Photo 14" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410031.jpeg" alt="Photo 15" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410032.jpeg" alt="Photo 16" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410033.jpeg" alt="Photo 17" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410034.jpeg" alt="Photo 18" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410035.jpeg" alt="Photo 19" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/000241410036.jpeg" alt="Photo 20" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890002.jpg" alt="Photo 21" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890003.jpg" alt="Photo 22" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890004.jpeg" alt="Photo 23" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890019.jpg" alt="Photo 24" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890024.jpg" alt="Photo 25" />
+        </div>
+        <div class="gallery-item hidden-item" onclick="openLightbox(this)">
+          <img src="images/009208890032.jpeg" alt="Photo 26" />
+        </div>
+
+        <!-- "Less" button (hidden initially) -->
+        <div class="gallery-item more-button" id="less-btn" onclick="showLess()" style="display: none;">
+          <div class="more-content">
+            <span>Less</span>
           </div>
         </div>
       </div>
-    </section>
-  </div>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="index.html">Home</a></li>
-        </ul>
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
       </div>
-      <div class="footer-column">
-        <h4>Portfolio</h4>
-        <ul>
-          <li><a href="portfolio.html#audio">Audio</a></li>
-          <li><a href="portfolio.html#video">Video</a></li>
-          <li><a href="portfolio.html#other">Other</a></li>
-        </ul>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Portfolio</h4>
+          <ul>
+            <li><a href="portfolio.html#audio">Audio</a></li>
+            <li><a href="portfolio.html#video">Video</a></li>
+            <li><a href="portfolio.html#other">Other</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Email</a></li>
+            <li><a href="contact.html">Phone</a></li>
+            <li><a href="contact.html">Location</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:your-email@example.com">Email</a></li>
-          <li><a href="tel:+1234567890">Phone</a></li>
-          <li><a href="https://www.google.com/maps/place/Your+Location" target="_blank">Location</a></li>
-        </ul>
-      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Matthew Casey. Everything on this website was coded by myself.</p>
     </div>
-  </footer>
 </body>
+
+<script>
+  // Lightbox functions
+  function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const img = element.querySelector('img');
+
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Show More/Less functions
+  function showMore() {
+    const hiddenItems = document.querySelectorAll('.hidden-item');
+    const moreBtn = document.getElementById('more-btn');
+    const lessBtn = document.getElementById('less-btn');
+
+    hiddenItems.forEach(item => {
+      item.style.display = 'flex';
+    });
+
+    moreBtn.style.display = 'none';
+    lessBtn.style.display = 'flex';
+
+    // Smooth scroll to the new images
+    setTimeout(() => {
+      lessBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  function showLess() {
+    const hiddenItems = document.querySelectorAll('.hidden-item');
+    const moreBtn = document.getElementById('more-btn');
+    const lessBtn = document.getElementById('less-btn');
+
+    hiddenItems.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    moreBtn.style.display = 'flex';
+    lessBtn.style.display = 'none';
+
+    // Smooth scroll back to the "More" button
+    setTimeout(() => {
+      moreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  // Parallax scroll effect (if you have this from earlier)
+  document.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+    const headerImage = document.querySelector(".header-background-image");
+
+    if (headerImage) {
+      headerImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    }
+  });
+</script>
+
 </html>
